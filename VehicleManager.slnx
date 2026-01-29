@@ -1,6 +1,6 @@
 <Solution>
-  <Project Path="BL/BL.csproj" />
-  <Project Path="DAL/DAL.csproj" />
-  <Project Path="Models/Models.csproj" />
-  <Project Path="VehicleManager/VehicleManager.csproj" />
+  <Project Path="BL/BL.csproj" Id="272e38ea-7ef0-4bad-87ad-e259a5a727db" />
+  <Project Path="DAL/DAL.csproj" Id="eae8505d-bc84-421d-b6d5-f1505495a2b6" />
+  <Project Path="Models/Models.csproj" Id="a6016a66-44b0-4913-8589-f07fd1c916e2" />
+  <Project Path="VehicleManager/VehicleManager.csproj" Id="bef01341-6b4a-4096-9017-333976b98f8c" />
 </Solution>

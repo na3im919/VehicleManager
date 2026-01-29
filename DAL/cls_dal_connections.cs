@@ -8,6 +8,6 @@ namespace DAL
 {
     public class cls_dal_connections
     {
-        public static string connection = "Server=.;Database=SchoolDB;User Id=sa;Password=sa123456;";
+        public static string connection = "Server=.;Database=VehcileManager;User Id=sa;Password=sa123456;";
     }
 }

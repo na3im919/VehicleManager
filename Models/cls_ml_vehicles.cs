@@ -19,6 +19,9 @@ namespace Models
         public string driver_name { get; set; }
         public DateTime start_date { get; set; }
         public DateTime end_date { get; set; }
+        public string observation { get; set; }
+
+        public string status_label { get; set; }
 
     }
 }
