@@ -41,6 +41,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="cls_bl_drivers.cs" />
     <Compile Include="cls_bl_providers.cs" />
     <Compile Include="cls_bl_vehicles.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

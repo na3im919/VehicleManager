@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using DevExpress.XtraEditors;
+using BL;
 
 namespace VehicleManager
 {
@@ -89,6 +90,26 @@ namespace VehicleManager
             cmb_provider.Properties.Columns["provider_name"].Caption = "";
             cmb_provider.Properties.Columns["isActive"].Visible = false;
         }
+
+        void LoadDrivers()
+        {
+            string error;
+            var drivers = cls_bl_drivers.GetAllDrivers(out error);
+            if(drivers == null)
+            {
+                XtraMessageBox.Show("Erreur lors du chargement des conducteurs : " + error, "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            cmb_driver.Properties.DataSource = drivers;
+            cmb_driver.Properties.DisplayMember = "driver_name";
+            cmb_driver.Properties.ValueMember = "driver_id";
+            cmb_driver.Properties.NullText = "-- Sélectionner un Conducteur --"; 
+            cmb_driver.Properties.PopulateColumns();
+            cmb_driver.Properties.Columns["driver_id"].Visible = false;
+            cmb_driver.Properties.Columns["driver_name"].Caption = "";
+            cmb_driver.Properties.Columns["isActive"].Visible = false;
+            cmb_driver.Properties.AllowNullInput = DevExpress.Utils.DefaultBoolean.True;
+        }
         private void btn_cancel_Click(object sender, EventArgs e)
         {
             this.Close();
@@ -105,6 +126,7 @@ namespace VehicleManager
         private void Add_Update_Vehicle_Load(object sender, EventArgs e)
         {
             LoadProviders();
+            LoadDrivers();
         }
     }
 }
