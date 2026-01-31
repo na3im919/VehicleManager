@@ -42,19 +42,6 @@ namespace VehicleManager
                 return false;
             }
 
-            if((string.IsNullOrEmpty(cmb_departement.Text)))
-            {
-                cmb_departement.ErrorText = "Le remplissage de ce champ est obligatoire.";
-                cmb_departement.Focus();
-                return false;
-            }
-
-            if((string.IsNullOrEmpty(cmb_driver.Text)))
-            {
-                cmb_driver.ErrorText = "Le remplissage de ce champ est obligatoire.";
-                cmb_driver.Focus();
-                return false;
-            }
 
             if((string.IsNullOrEmpty(cmb_status.Text)))
             {
@@ -83,6 +70,25 @@ namespace VehicleManager
             }
             return true;
         }
+
+        void LoadProviders()
+        {
+            string error;
+            var providers = BL.cls_bl_providers.GetAllProviders(out error);
+            if(providers == null)
+            {
+                XtraMessageBox.Show("Erreur lors du chargement des fournisseurs : " + error, "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            cmb_provider.Properties.DataSource = providers;
+            cmb_provider.Properties.DisplayMember = "provider_name";
+            cmb_provider.Properties.ValueMember = "provider_id";
+            cmb_provider.Properties.NullText = "-- Sélectionner un Préstataire --"; 
+            cmb_provider.Properties.PopulateColumns();
+            cmb_provider.Properties.Columns["provider_id"].Visible = false;
+            cmb_provider.Properties.Columns["provider_name"].Caption = "";
+            cmb_provider.Properties.Columns["isActive"].Visible = false;
+        }
         private void btn_cancel_Click(object sender, EventArgs e)
         {
             this.Close();
@@ -94,6 +100,11 @@ namespace VehicleManager
             {
                 return;
             }
+        }
+
+        private void Add_Update_Vehicle_Load(object sender, EventArgs e)
+        {
+            LoadProviders();
         }
     }
 }

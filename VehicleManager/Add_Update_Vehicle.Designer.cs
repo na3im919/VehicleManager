@@ -365,6 +365,7 @@
             this.Name = "Add_Update_Vehicle";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Ajouter Nouvelle véhicle";
+            this.Load += new System.EventHandler(this.Add_Update_Vehicle_Load);
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).EndInit();
             this.layoutControl1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.Root)).EndInit();
