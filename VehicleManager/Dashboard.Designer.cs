@@ -52,13 +52,13 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel3 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.txtSearch = new System.Windows.Forms.TextBox();
+            this.cmbSearchField = new System.Windows.Forms.ComboBox();
             this.panel13 = new System.Windows.Forms.Panel();
             this.simpleButton4 = new DevExpress.XtraEditors.SimpleButton();
             this.simpleButton3 = new DevExpress.XtraEditors.SimpleButton();
             this.simpleButton2 = new DevExpress.XtraEditors.SimpleButton();
-            this.simpleButton1 = new DevExpress.XtraEditors.SimpleButton();
+            this.btn_add = new DevExpress.XtraEditors.SimpleButton();
             this.dgv_vehicles = new System.Windows.Forms.DataGridView();
             this.panel1.SuspendLayout();
             this.panel7.SuspendLayout();
@@ -310,28 +310,43 @@
             // panel2
             // 
             this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel2.Controls.Add(this.textBox1);
-            this.panel2.Controls.Add(this.comboBox1);
+            this.panel2.Controls.Add(this.txtSearch);
+            this.panel2.Controls.Add(this.cmbSearchField);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel2.Location = new System.Drawing.Point(0, 284);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(1916, 57);
             this.panel2.TabIndex = 1;
             // 
-            // textBox1
+            // txtSearch
             // 
-            this.textBox1.Location = new System.Drawing.Point(292, 16);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(478, 23);
-            this.textBox1.TabIndex = 1;
+            this.txtSearch.Font = new System.Drawing.Font("Trebuchet MS", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtSearch.Location = new System.Drawing.Point(292, 16);
+            this.txtSearch.Name = "txtSearch";
+            this.txtSearch.Size = new System.Drawing.Size(478, 27);
+            this.txtSearch.TabIndex = 1;
+            this.txtSearch.TextChanged += new System.EventHandler(this.txtSearch_TextChanged);
             // 
-            // comboBox1
+            // cmbSearchField
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(12, 16);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(259, 24);
-            this.comboBox1.TabIndex = 0;
+            this.cmbSearchField.BackColor = System.Drawing.Color.White;
+            this.cmbSearchField.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbSearchField.Font = new System.Drawing.Font("Trebuchet MS", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmbSearchField.FormattingEnabled = true;
+            this.cmbSearchField.Items.AddRange(new object[] {
+            "Véhicule",
+            "Préstataire",
+            "Service Fait (Conducteur)",
+            "Immatriculation",
+            "Affectation",
+            "Status",
+            "DATE MISE EN SERVICE",
+            "DATE FIN DE SERVICE"});
+            this.cmbSearchField.Location = new System.Drawing.Point(12, 16);
+            this.cmbSearchField.Name = "cmbSearchField";
+            this.cmbSearchField.Size = new System.Drawing.Size(259, 31);
+            this.cmbSearchField.TabIndex = 0;
+            this.cmbSearchField.SelectedIndexChanged += new System.EventHandler(this.cmbSearchField_SelectedIndexChanged);
             // 
             // panel13
             // 
@@ -339,7 +354,7 @@
             this.panel13.Controls.Add(this.simpleButton4);
             this.panel13.Controls.Add(this.simpleButton3);
             this.panel13.Controls.Add(this.simpleButton2);
-            this.panel13.Controls.Add(this.simpleButton1);
+            this.panel13.Controls.Add(this.btn_add);
             this.panel13.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel13.Location = new System.Drawing.Point(0, 200);
             this.panel13.Name = "panel13";
@@ -379,16 +394,17 @@
             this.simpleButton2.TabIndex = 1;
             this.simpleButton2.Text = "Modéfier";
             // 
-            // simpleButton1
+            // btn_add
             // 
-            this.simpleButton1.Appearance.Font = new System.Drawing.Font("Trebuchet MS", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.simpleButton1.Appearance.Options.UseFont = true;
-            this.simpleButton1.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("simpleButton1.ImageOptions.SvgImage")));
-            this.simpleButton1.Location = new System.Drawing.Point(27, 16);
-            this.simpleButton1.Name = "simpleButton1";
-            this.simpleButton1.Size = new System.Drawing.Size(147, 51);
-            this.simpleButton1.TabIndex = 0;
-            this.simpleButton1.Text = "Ajouter";
+            this.btn_add.Appearance.Font = new System.Drawing.Font("Trebuchet MS", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_add.Appearance.Options.UseFont = true;
+            this.btn_add.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("simpleButton1.ImageOptions.SvgImage")));
+            this.btn_add.Location = new System.Drawing.Point(27, 16);
+            this.btn_add.Name = "btn_add";
+            this.btn_add.Size = new System.Drawing.Size(147, 51);
+            this.btn_add.TabIndex = 0;
+            this.btn_add.Text = "Ajouter";
+            this.btn_add.Click += new System.EventHandler(this.btn_add_Click);
             // 
             // dgv_vehicles
             // 
@@ -399,10 +415,13 @@
             this.dgv_vehicles.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgv_vehicles.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgv_vehicles.Location = new System.Drawing.Point(0, 341);
+            this.dgv_vehicles.MultiSelect = false;
             this.dgv_vehicles.Name = "dgv_vehicles";
             this.dgv_vehicles.ReadOnly = true;
+            this.dgv_vehicles.RowHeadersVisible = false;
             this.dgv_vehicles.RowHeadersWidth = 51;
             this.dgv_vehicles.RowTemplate.Height = 24;
+            this.dgv_vehicles.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgv_vehicles.Size = new System.Drawing.Size(1916, 401);
             this.dgv_vehicles.TabIndex = 3;
             // 
@@ -448,11 +467,10 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.TextBox txtSearch;
+        private System.Windows.Forms.ComboBox cmbSearchField;
         private System.Windows.Forms.Panel panel7;
         private System.Windows.Forms.Panel panel11;
-        private System.Windows.Forms.Label lbl_all_vehicles;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Panel panel6;
@@ -473,8 +491,9 @@
         private System.Windows.Forms.Panel panel13;
         private DevExpress.XtraEditors.SimpleButton simpleButton3;
         private DevExpress.XtraEditors.SimpleButton simpleButton2;
-        private DevExpress.XtraEditors.SimpleButton simpleButton1;
+        private DevExpress.XtraEditors.SimpleButton btn_add;
         private DevExpress.XtraEditors.SimpleButton simpleButton4;
         private System.Windows.Forms.DataGridView dgv_vehicles;
+        public System.Windows.Forms.Label lbl_all_vehicles;
     }
 }
