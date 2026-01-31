@@ -110,6 +110,27 @@ namespace VehicleManager
             cmb_driver.Properties.Columns["isActive"].Visible = false;
             cmb_driver.Properties.AllowNullInput = DevExpress.Utils.DefaultBoolean.True;
         }
+
+        void LoadDepartments()
+        {
+            string error;
+            var departments = cls_bl_departments.GetAllDepartments(out error);
+            if(departments == null)
+            {
+                XtraMessageBox.Show("Erreur lors du chargement des départements : " + error, "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            cmb_department.Properties.DataSource = departments;
+            cmb_department.Properties.DisplayMember = "department_name";
+            cmb_department.Properties.ValueMember = "department_id";
+            cmb_department.Properties.NullText = "-- Sélectionner une Affectation --";
+            cmb_department.Properties.PopulateColumns();
+            cmb_department.Properties.Columns["department_id"].Visible = false;
+            cmb_department.Properties.Columns["department_name"].Caption = "";
+            cmb_department.Properties.Columns["isActive"].Visible = false;
+            cmb_department.Properties.AllowNullInput = DevExpress.Utils.DefaultBoolean.True;
+
+        }
         private void btn_cancel_Click(object sender, EventArgs e)
         {
             this.Close();
@@ -126,6 +147,7 @@ namespace VehicleManager
         private void Add_Update_Vehicle_Load(object sender, EventArgs e)
         {
             LoadProviders();
+            LoadDepartments();
             LoadDrivers();
         }
     }

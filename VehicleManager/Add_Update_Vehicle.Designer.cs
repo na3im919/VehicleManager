@@ -39,7 +39,7 @@
             this.cmb_provider = new DevExpress.XtraEditors.LookUpEdit();
             this.layoutControlItem4 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem5 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.cmb_departement = new DevExpress.XtraEditors.LookUpEdit();
+            this.cmb_department = new DevExpress.XtraEditors.LookUpEdit();
             this.cmb_driver = new DevExpress.XtraEditors.LookUpEdit();
             this.date_start_service = new DevExpress.XtraEditors.DateEdit();
             this.layoutControlItem6 = new DevExpress.XtraLayout.LayoutControlItem();
@@ -62,7 +62,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.cmb_provider.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem5)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cmb_departement.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cmb_department.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cmb_driver.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.date_start_service.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.date_start_service.Properties.CalendarTimeProperties)).BeginInit();
@@ -81,7 +81,7 @@
             this.layoutControl1.Controls.Add(this.txt_vehicle_name);
             this.layoutControl1.Controls.Add(this.txt_vehicle_number);
             this.layoutControl1.Controls.Add(this.cmb_provider);
-            this.layoutControl1.Controls.Add(this.cmb_departement);
+            this.layoutControl1.Controls.Add(this.cmb_department);
             this.layoutControl1.Controls.Add(this.cmb_driver);
             this.layoutControl1.Controls.Add(this.date_start_service);
             this.layoutControl1.Controls.Add(this.date_end_service);
@@ -184,7 +184,7 @@
             // 
             this.layoutControlItem4.AppearanceItemCaption.Font = new System.Drawing.Font("Trebuchet MS", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.layoutControlItem4.AppearanceItemCaption.Options.UseFont = true;
-            this.layoutControlItem4.Control = this.cmb_departement;
+            this.layoutControlItem4.Control = this.cmb_department;
             this.layoutControlItem4.Location = new System.Drawing.Point(0, 102);
             this.layoutControlItem4.Name = "layoutControlItem4";
             this.layoutControlItem4.Size = new System.Drawing.Size(1247, 34);
@@ -202,19 +202,19 @@
             this.layoutControlItem5.Text = "Service Fait (Conducteur)\"";
             this.layoutControlItem5.TextSize = new System.Drawing.Size(199, 23);
             // 
-            // cmb_departement
+            // cmb_department
             // 
-            this.cmb_departement.Location = new System.Drawing.Point(228, 116);
-            this.cmb_departement.Name = "cmb_departement";
-            this.cmb_departement.Properties.Appearance.Font = new System.Drawing.Font("Trebuchet MS", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cmb_departement.Properties.Appearance.Options.UseFont = true;
-            this.cmb_departement.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            this.cmb_department.Location = new System.Drawing.Point(228, 116);
+            this.cmb_department.Name = "cmb_department";
+            this.cmb_department.Properties.Appearance.Font = new System.Drawing.Font("Trebuchet MS", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmb_department.Properties.Appearance.Options.UseFont = true;
+            this.cmb_department.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.cmb_departement.Properties.NullText = "";
-            this.cmb_departement.Properties.PopupSizeable = false;
-            this.cmb_departement.Size = new System.Drawing.Size(1029, 30);
-            this.cmb_departement.StyleController = this.layoutControl1;
-            this.cmb_departement.TabIndex = 7;
+            this.cmb_department.Properties.NullText = "";
+            this.cmb_department.Properties.PopupSizeable = false;
+            this.cmb_department.Size = new System.Drawing.Size(1029, 30);
+            this.cmb_department.StyleController = this.layoutControl1;
+            this.cmb_department.TabIndex = 7;
             // 
             // cmb_driver
             // 
@@ -377,7 +377,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.cmb_provider.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem5)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cmb_departement.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cmb_department.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cmb_driver.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.date_start_service.Properties.CalendarTimeProperties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.date_start_service.Properties)).EndInit();
@@ -403,7 +403,7 @@
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem2;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem3;
         private DevExpress.XtraEditors.LookUpEdit cmb_provider;
-        private DevExpress.XtraEditors.LookUpEdit cmb_departement;
+        private DevExpress.XtraEditors.LookUpEdit cmb_department;
         private DevExpress.XtraEditors.LookUpEdit cmb_driver;
         private DevExpress.XtraEditors.DateEdit date_start_service;
         private DevExpress.XtraEditors.DateEdit date_end_service;
