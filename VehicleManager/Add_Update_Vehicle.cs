@@ -50,18 +50,13 @@ namespace VehicleManager
                 cmb_status.Focus();
                 return false;
             }
-            if(date_start_service.DateTime > date_end_service.DateTime)
+            if (date_start_service.DateTime > date_end_service.DateTime && !string.IsNullOrEmpty(date_end_service.Text))
             {
                 XtraMessageBox.Show("La date de début ne peut pas être postérieure à la date de fin.", "Erreur de validation", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 date_start_service.Focus();
                 return false;
             }
-            if(string.IsNullOrEmpty(txt_observation.Text))
-            {
-                txt_observation.ErrorText = "Le remplissage de ce champ est obligatoire.";
-                txt_observation.Focus();
-                return false;
-            }
+          
 
             if (string.IsNullOrEmpty(date_start_service.Text))
             {
@@ -111,6 +106,28 @@ namespace VehicleManager
             cmb_driver.Properties.AllowNullInput = DevExpress.Utils.DefaultBoolean.True;
         }
 
+        void LoadStatus()
+        {
+            string error = string.Empty;
+            var status = cls_bl_vehicles_status.GetAllVehiclesStatus(out error);
+            if(status == null)
+            {
+                XtraMessageBox.Show("Erreur lors du chargement des statuts : " + error, "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            cmb_status.Properties.DataSource = status;
+            cmb_status.Properties.DisplayMember = "status_label";
+            cmb_status.Properties.ValueMember = "status_id";
+            cmb_status.Properties.NullText = "-- Sélectionner un Statut --";
+            cmb_status.Properties.PopulateColumns();
+            cmb_status.Properties.Columns["status_id"].Visible = false;
+            cmb_status.Properties.Columns["status_label"].Caption = "";
+            cmb_status.Properties.Columns["status_code"].Visible = false;
+
+
+
+        }
+
         void LoadDepartments()
         {
             string error;
@@ -149,6 +166,7 @@ namespace VehicleManager
             LoadProviders();
             LoadDepartments();
             LoadDrivers();
+            LoadStatus();
         }
     }
 }
