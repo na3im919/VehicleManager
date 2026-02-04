@@ -85,9 +85,10 @@ namespace DAL
 
                                     // التواريخ
                                     start_date = reader.GetDateTime(reader.GetOrdinal("start_date")),
-                                    end_date = reader.GetDateTime(reader.GetOrdinal("end_date"))
+                                    end_date = reader.IsDBNull(reader.GetOrdinal("end_date")) ? (DateTime?)null : reader.GetDateTime(reader.GetOrdinal("end_date"))
                                 };
-                                vehicles.Add(vehicle);
+
+                                    vehicles.Add(vehicle);
                             }
                         }
                     }

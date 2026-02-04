@@ -12,5 +12,17 @@ namespace BL
         {
             return cls_dal_departments.GetAllDepartments(out error);
         }
+
+        public static int AddNewDepartment(string department_name, out string error)
+        {
+                       return cls_dal_departments.AddNewDepartment(department_name, out error);
+        }
+
+        public static int GetDepartmentIdByName(string department_name, out string error)
+
+        {          
+            return cls_dal_departments.GetDepartmentIdByName(department_name, out error);
+        }
+
     }
 }

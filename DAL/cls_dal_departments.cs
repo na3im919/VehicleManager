@@ -42,5 +42,55 @@ namespace DAL
                 }
             }
         }
+
+        public static int GetDepartmentIdByName(string department_name, out string error)
+        {
+            error = string.Empty;
+            int department_id = -1;
+            string query = "SELECT department_id FROM departments WHERE department_name = @department_name AND isActive = 1";
+            using (System.Data.SqlClient.SqlConnection connection = new System.Data.SqlClient.SqlConnection(connectionString))
+            {
+                System.Data.SqlClient.SqlCommand command = new System.Data.SqlClient.SqlCommand(query, connection);
+                command.Parameters.AddWithValue("@department_name", department_name);
+                try
+                {
+                    connection.Open();
+                    object result = command.ExecuteScalar();
+                    if (result != null)
+                    {
+                        department_id = Convert.ToInt32(result);
+                    }
+                    return department_id;
+                }
+                catch (Exception ex)
+                {
+                    error = ex.Message;
+                    return -1;
+                }
+            }
+        }
+
+        public static int AddNewDepartment(string department_name, out string error)
+        {
+            error = string.Empty;
+            int new_department_id = -1;
+            string query = "INSERT INTO departments (department_name, isActive) OUTPUT INSERTED.department_id VALUES (@department_name, 1)";
+            using (System.Data.SqlClient.SqlConnection connection = new System.Data.SqlClient.SqlConnection(connectionString))
+            {
+                System.Data.SqlClient.SqlCommand command = new System.Data.SqlClient.SqlCommand(query, connection);
+                command.Parameters.AddWithValue("@department_name", department_name);
+                try
+                {
+                    connection.Open();
+                    new_department_id = (int)command.ExecuteScalar();
+                    return new_department_id;
+                }
+                catch (Exception ex)
+                {
+                    error = ex.Message;
+                    return -1;
+                }
+            }
+        }
     }
 }
