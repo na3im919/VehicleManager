@@ -56,8 +56,8 @@
             this.cmbSearchField = new System.Windows.Forms.ComboBox();
             this.panel13 = new System.Windows.Forms.Panel();
             this.simpleButton4 = new DevExpress.XtraEditors.SimpleButton();
-            this.simpleButton3 = new DevExpress.XtraEditors.SimpleButton();
-            this.simpleButton2 = new DevExpress.XtraEditors.SimpleButton();
+            this.btn_delete = new DevExpress.XtraEditors.SimpleButton();
+            this.btn_update = new DevExpress.XtraEditors.SimpleButton();
             this.btn_add = new DevExpress.XtraEditors.SimpleButton();
             this.dgv_vehicles = new System.Windows.Forms.DataGridView();
             this.panel1.SuspendLayout();
@@ -87,7 +87,7 @@
             this.panel1.Controls.Add(this.panel3);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1944, 238);
             this.panel1.TabIndex = 0;
@@ -97,7 +97,7 @@
             this.panel7.Controls.Add(this.panel11);
             this.panel7.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel7.Location = new System.Drawing.Point(1307, 0);
-            this.panel7.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel7.Margin = new System.Windows.Forms.Padding(4);
             this.panel7.Name = "panel7";
             this.panel7.Size = new System.Drawing.Size(409, 238);
             this.panel7.TabIndex = 10;
@@ -109,7 +109,7 @@
             this.panel11.Controls.Add(this.lbl_faulty_vehicles);
             this.panel11.Controls.Add(this.pictureBox4);
             this.panel11.Location = new System.Drawing.Point(17, 13);
-            this.panel11.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel11.Margin = new System.Windows.Forms.Padding(4);
             this.panel11.Name = "panel11";
             this.panel11.Size = new System.Drawing.Size(375, 211);
             this.panel11.TabIndex = 1;
@@ -142,7 +142,7 @@
             // 
             this.pictureBox4.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox4.Image")));
             this.pictureBox4.Location = new System.Drawing.Point(235, 90);
-            this.pictureBox4.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pictureBox4.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox4.Name = "pictureBox4";
             this.pictureBox4.Size = new System.Drawing.Size(118, 93);
             this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -154,7 +154,7 @@
             this.panel6.Controls.Add(this.panel10);
             this.panel6.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel6.Location = new System.Drawing.Point(898, 0);
-            this.panel6.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel6.Margin = new System.Windows.Forms.Padding(4);
             this.panel6.Name = "panel6";
             this.panel6.Size = new System.Drawing.Size(409, 238);
             this.panel6.TabIndex = 9;
@@ -166,7 +166,7 @@
             this.panel10.Controls.Add(this.lbl_veicles_in_repair);
             this.panel10.Controls.Add(this.pictureBox3);
             this.panel10.Location = new System.Drawing.Point(17, 13);
-            this.panel10.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel10.Margin = new System.Windows.Forms.Padding(4);
             this.panel10.Name = "panel10";
             this.panel10.Size = new System.Drawing.Size(375, 211);
             this.panel10.TabIndex = 1;
@@ -199,7 +199,7 @@
             // 
             this.pictureBox3.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox3.Image")));
             this.pictureBox3.Location = new System.Drawing.Point(253, 90);
-            this.pictureBox3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pictureBox3.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox3.Name = "pictureBox3";
             this.pictureBox3.Size = new System.Drawing.Size(118, 93);
             this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -211,7 +211,7 @@
             this.panel5.Controls.Add(this.panel9);
             this.panel5.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel5.Location = new System.Drawing.Point(489, 0);
-            this.panel5.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel5.Margin = new System.Windows.Forms.Padding(4);
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(409, 238);
             this.panel5.TabIndex = 8;
@@ -223,7 +223,7 @@
             this.panel9.Controls.Add(this.label2);
             this.panel9.Controls.Add(this.pictureBox2);
             this.panel9.Location = new System.Drawing.Point(17, 13);
-            this.panel9.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel9.Margin = new System.Windows.Forms.Padding(4);
             this.panel9.Name = "panel9";
             this.panel9.Size = new System.Drawing.Size(375, 211);
             this.panel9.TabIndex = 1;
@@ -256,7 +256,7 @@
             // 
             this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
             this.pictureBox2.Location = new System.Drawing.Point(253, 90);
-            this.pictureBox2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pictureBox2.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(118, 93);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -268,7 +268,7 @@
             this.panel4.Controls.Add(this.panel8);
             this.panel4.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel4.Location = new System.Drawing.Point(80, 0);
-            this.panel4.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel4.Margin = new System.Windows.Forms.Padding(4);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(409, 238);
             this.panel4.TabIndex = 7;
@@ -280,7 +280,7 @@
             this.panel8.Controls.Add(this.label1);
             this.panel8.Controls.Add(this.pictureBox1);
             this.panel8.Location = new System.Drawing.Point(17, 11);
-            this.panel8.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel8.Margin = new System.Windows.Forms.Padding(4);
             this.panel8.Name = "panel8";
             this.panel8.Size = new System.Drawing.Size(375, 211);
             this.panel8.TabIndex = 0;
@@ -313,7 +313,7 @@
             // 
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
             this.pictureBox1.Location = new System.Drawing.Point(242, 93);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(118, 93);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -324,7 +324,7 @@
             // 
             this.panel3.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel3.Location = new System.Drawing.Point(0, 0);
-            this.panel3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel3.Margin = new System.Windows.Forms.Padding(4);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(80, 238);
             this.panel3.TabIndex = 6;
@@ -336,7 +336,7 @@
             this.panel2.Controls.Add(this.cmbSearchField);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel2.Location = new System.Drawing.Point(0, 337);
-            this.panel2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel2.Margin = new System.Windows.Forms.Padding(4);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(1944, 67);
             this.panel2.TabIndex = 1;
@@ -345,7 +345,7 @@
             // 
             this.txtSearch.Font = new System.Drawing.Font("Trebuchet MS", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtSearch.Location = new System.Drawing.Point(375, 19);
-            this.txtSearch.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtSearch.Margin = new System.Windows.Forms.Padding(4);
             this.txtSearch.Name = "txtSearch";
             this.txtSearch.Size = new System.Drawing.Size(613, 31);
             this.txtSearch.TabIndex = 1;
@@ -367,7 +367,7 @@
             "DATE MISE EN SERVICE",
             "DATE FIN DE SERVICE"});
             this.cmbSearchField.Location = new System.Drawing.Point(15, 19);
-            this.cmbSearchField.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cmbSearchField.Margin = new System.Windows.Forms.Padding(4);
             this.cmbSearchField.Name = "cmbSearchField";
             this.cmbSearchField.Size = new System.Drawing.Size(332, 34);
             this.cmbSearchField.TabIndex = 0;
@@ -377,12 +377,12 @@
             // 
             this.panel13.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel13.Controls.Add(this.simpleButton4);
-            this.panel13.Controls.Add(this.simpleButton3);
-            this.panel13.Controls.Add(this.simpleButton2);
+            this.panel13.Controls.Add(this.btn_delete);
+            this.panel13.Controls.Add(this.btn_update);
             this.panel13.Controls.Add(this.btn_add);
             this.panel13.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel13.Location = new System.Drawing.Point(0, 238);
-            this.panel13.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel13.Margin = new System.Windows.Forms.Padding(4);
             this.panel13.Name = "panel13";
             this.panel13.Size = new System.Drawing.Size(1944, 99);
             this.panel13.TabIndex = 2;
@@ -393,36 +393,37 @@
             this.simpleButton4.Appearance.Options.UseFont = true;
             this.simpleButton4.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("simpleButton4.ImageOptions.SvgImage")));
             this.simpleButton4.Location = new System.Drawing.Point(683, 19);
-            this.simpleButton4.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.simpleButton4.Margin = new System.Windows.Forms.Padding(4);
             this.simpleButton4.Name = "simpleButton4";
             this.simpleButton4.Size = new System.Drawing.Size(189, 61);
             this.simpleButton4.TabIndex = 3;
             this.simpleButton4.Text = "Importer";
-            this.simpleButton4.Click += new System.EventHandler(this.simpleButton4_Click);
             // 
-            // simpleButton3
+            // btn_delete
             // 
-            this.simpleButton3.Appearance.Font = new System.Drawing.Font("Trebuchet MS", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.simpleButton3.Appearance.Options.UseFont = true;
-            this.simpleButton3.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("simpleButton3.ImageOptions.SvgImage")));
-            this.simpleButton3.Location = new System.Drawing.Point(469, 19);
-            this.simpleButton3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.simpleButton3.Name = "simpleButton3";
-            this.simpleButton3.Size = new System.Drawing.Size(189, 61);
-            this.simpleButton3.TabIndex = 2;
-            this.simpleButton3.Text = "Supprimer";
+            this.btn_delete.Appearance.Font = new System.Drawing.Font("Trebuchet MS", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_delete.Appearance.Options.UseFont = true;
+            this.btn_delete.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("simpleButton3.ImageOptions.SvgImage")));
+            this.btn_delete.Location = new System.Drawing.Point(469, 19);
+            this.btn_delete.Margin = new System.Windows.Forms.Padding(4);
+            this.btn_delete.Name = "btn_delete";
+            this.btn_delete.Size = new System.Drawing.Size(189, 61);
+            this.btn_delete.TabIndex = 2;
+            this.btn_delete.Text = "Supprimer";
+            this.btn_delete.Click += new System.EventHandler(this.btn_delete_Click);
             // 
-            // simpleButton2
+            // btn_update
             // 
-            this.simpleButton2.Appearance.Font = new System.Drawing.Font("Trebuchet MS", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.simpleButton2.Appearance.Options.UseFont = true;
-            this.simpleButton2.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("simpleButton2.ImageOptions.SvgImage")));
-            this.simpleButton2.Location = new System.Drawing.Point(257, 19);
-            this.simpleButton2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.simpleButton2.Name = "simpleButton2";
-            this.simpleButton2.Size = new System.Drawing.Size(189, 61);
-            this.simpleButton2.TabIndex = 1;
-            this.simpleButton2.Text = "Modéfier";
+            this.btn_update.Appearance.Font = new System.Drawing.Font("Trebuchet MS", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_update.Appearance.Options.UseFont = true;
+            this.btn_update.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btn_update.ImageOptions.SvgImage")));
+            this.btn_update.Location = new System.Drawing.Point(257, 19);
+            this.btn_update.Margin = new System.Windows.Forms.Padding(4);
+            this.btn_update.Name = "btn_update";
+            this.btn_update.Size = new System.Drawing.Size(189, 61);
+            this.btn_update.TabIndex = 1;
+            this.btn_update.Text = "Modéfier";
+            this.btn_update.Click += new System.EventHandler(this.btn_update_Click);
             // 
             // btn_add
             // 
@@ -430,7 +431,7 @@
             this.btn_add.Appearance.Options.UseFont = true;
             this.btn_add.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btn_add.ImageOptions.SvgImage")));
             this.btn_add.Location = new System.Drawing.Point(35, 19);
-            this.btn_add.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btn_add.Margin = new System.Windows.Forms.Padding(4);
             this.btn_add.Name = "btn_add";
             this.btn_add.Size = new System.Drawing.Size(189, 61);
             this.btn_add.TabIndex = 0;
@@ -446,7 +447,7 @@
             this.dgv_vehicles.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgv_vehicles.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgv_vehicles.Location = new System.Drawing.Point(0, 404);
-            this.dgv_vehicles.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dgv_vehicles.Margin = new System.Windows.Forms.Padding(4);
             this.dgv_vehicles.MultiSelect = false;
             this.dgv_vehicles.Name = "dgv_vehicles";
             this.dgv_vehicles.ReadOnly = true;
@@ -466,7 +467,7 @@
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel13);
             this.Controls.Add(this.panel1);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Dashboard";
             this.Text = "Dashboard";
             this.Load += new System.EventHandler(this.Dashboard_Load);
@@ -522,8 +523,8 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.PictureBox pictureBox4;
         private System.Windows.Forms.Panel panel13;
-        private DevExpress.XtraEditors.SimpleButton simpleButton3;
-        private DevExpress.XtraEditors.SimpleButton simpleButton2;
+        private DevExpress.XtraEditors.SimpleButton btn_delete;
+        private DevExpress.XtraEditors.SimpleButton btn_update;
         private DevExpress.XtraEditors.SimpleButton btn_add;
         private DevExpress.XtraEditors.SimpleButton simpleButton4;
         private System.Windows.Forms.DataGridView dgv_vehicles;

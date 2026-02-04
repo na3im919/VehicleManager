@@ -31,9 +31,27 @@ namespace BL
         }
 
 
+        public static cls_ml_vehicles GetVehicleByID(int vehicleID, out string error)
+        {
+            return cls_dal_vehicles.GetVehicleByID(vehicleID, out error);
+        }
 
+        public static bool AddNewVehicle(cls_ml_vehicles newVehicle, out string error)
+        {
+            return cls_dal_vehicles.AddNewVehicle(newVehicle, out error);
+        }
 
-}
+        public static bool UpdateVehicle(int vehicleID, cls_ml_vehicles updatedVehicle, out string error)
+        {
+            return cls_dal_vehicles.UpdateVehicle(vehicleID, updatedVehicle, out error);
+        }
+
+        public static bool DeleteVehicle(int vehicleID, out string error)
+        {
+            return cls_dal_vehicles.DeleteVehicle(vehicleID, out error);
+        }
+
+    }
 
     public class vehiclesCountingChangedEventArgs : EventArgs
     {

@@ -62,7 +62,7 @@ namespace VehicleManager
             string error_message = string.Empty;
 
             // 1. استدعاء دالة جلب البيانات
-            var vehiclesList = cls_bl_vehicles.GetAllVehicles( out error_message, column, text);
+            var vehiclesList = cls_bl_vehicles.GetAllVehicles(out error_message, column, text);
 
             // 2. التحقق من وجود أخطاء
             if (!string.IsNullOrEmpty(error_message))
@@ -83,6 +83,7 @@ namespace VehicleManager
                 // ربط القائمة بالجدول
                 dgv_vehicles.DataSource = vehiclesList;
 
+
                 // 4. تعريف الأعمدة (Columns Mapping)
                 // إذا لم تكن الأعمدة موجودة مسبقاً، نقوم بإنشائها
                 if (dgv_vehicles.Columns.Count == 0)
@@ -90,9 +91,11 @@ namespace VehicleManager
                     // N° (استخدمنا vehicle_number لأنه الرقم الظاهر في Excel)
                     dgv_vehicles.Columns.Add(new DataGridViewTextBoxColumn
                     {
+                        Name = "vehicle_id", // اسم العمود في DataGridView
                         DataPropertyName = "vehicle_id",
                         HeaderText = "N°",
-                        Width = 50
+                        Width = 50,
+                        AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells
                     });
 
                     // Véhicule
@@ -100,7 +103,9 @@ namespace VehicleManager
                     {
                         DataPropertyName = "vehicle_brand",
                         HeaderText = "Véhicule",
-                        Width = 120
+                        Width = 120,
+                        AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill
+
                     });
 
                     // Immatriculation
@@ -108,7 +113,8 @@ namespace VehicleManager
                     {
                         DataPropertyName = "registration_number",
                         HeaderText = "Immatriculation",
-                        Width = 120
+                        Width = 120,
+                        AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells
                     });
 
                     // Préstataire
@@ -116,7 +122,9 @@ namespace VehicleManager
                     {
                         DataPropertyName = "provider_name",
                         HeaderText = "Préstataire",
-                        Width = 150
+                        Width = 150,
+                        AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill
+
                     });
 
                     // Affectation
@@ -124,7 +132,9 @@ namespace VehicleManager
                     {
                         DataPropertyName = "department_name",
                         HeaderText = "Affectation",
-                        Width = 120
+                        Width = 120,
+                        AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells
+
                     });
 
                     // Service Fait (Conducteur)
@@ -132,7 +142,9 @@ namespace VehicleManager
                     {
                         DataPropertyName = "driver_name",
                         HeaderText = "Service Fait (Conducteur)",
-                        Width = 180
+                        Width = 180,
+                        AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill
+
                     });
 
                     // DATE MISE EN SERVICE
@@ -140,7 +152,8 @@ namespace VehicleManager
                     {
                         DataPropertyName = "start_date",
                         HeaderText = "DATE MISE EN SERVICE",
-                        Width = 120
+                        Width = 120,
+                        AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells
                         // ملاحظة: إذا أردت تنسيق التاريخ (yyyy/MM/dd) يمكنك إضافة:
                         // DataGridViewCellStyle = new DataGridViewCellStyle() { Format = "yyyy/MM/dd" }
                     });
@@ -150,7 +163,8 @@ namespace VehicleManager
                     {
                         DataPropertyName = "end_date",
                         HeaderText = "DATE FIN DE SERVICE",
-                        Width = 120
+                        Width = 120,
+                        AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells
                     });
 
                     // STATUS
@@ -158,7 +172,8 @@ namespace VehicleManager
                     {
                         DataPropertyName = "status_label",
                         HeaderText = "STATUS",
-                        Width = 100
+                        Width = 100,
+                        AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells
                     });
 
                     // OBSERVATION
@@ -166,7 +181,7 @@ namespace VehicleManager
                     {
                         DataPropertyName = "observation",
                         HeaderText = "OBSERVATION",
-                        Width = 200,
+                        Width = 300,
                         AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill
                     });
 
@@ -178,11 +193,12 @@ namespace VehicleManager
                 // في حالة عدم وجود بيانات
                 dgv_vehicles.DataSource = null;
             }
+            DashboardCardsRefresh();
+
         }
         private void Dashboard_Load(object sender, EventArgs e)
         {
-            
-            DashboardCardsRefresh();
+
             LoadVehicles();
             cmbSearchField.SelectedIndex = 0;
 
@@ -268,15 +284,48 @@ namespace VehicleManager
         private void btn_add_Click(object sender, EventArgs e)
         {
             Add_Update_Vehicle addVehicleForm = new Add_Update_Vehicle();
+            addVehicleForm.OnVehicleListRefresh += LoadVehicles;
             addVehicleForm.ShowDialog();
         }
 
-        
+        private void btn_update_Click(object sender, EventArgs e)
+        {
+            if (dgv_vehicles.SelectedRows.Count > 0)
+            {
+                int vehicle_id = Convert.ToInt32(dgv_vehicles.SelectedRows[0].Cells["vehicle_id"].Value);
+                Add_Update_Vehicle updateVehicleForm = new Add_Update_Vehicle(vehicle_id);
+                updateVehicleForm.OnVehicleListRefresh += LoadVehicles;
+                updateVehicleForm.ShowDialog();
+            }
+            return;
+        }
+
+        private void btn_delete_Click(object sender, EventArgs e)
+        {
+            DialogResult result = XtraMessageBox.Show("Etes-vous sûr de vouloir supprimer le véhicule sélectionné?", "Confirmer la suppression", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+            if (result == DialogResult.Yes)
+            {
+                if (dgv_vehicles.SelectedRows.Count > 0)
+                {
+                    int vehicle_id = Convert.ToInt32(dgv_vehicles.SelectedRows[0].Cells["vehicle_id"].Value);
+                    string error = string.Empty;
+                    bool isDeleted = cls_bl_vehicles.DeleteVehicle(vehicle_id, out error);
+                    if (!isDeleted)
+                    {
+                        XtraMessageBox.Show("Erreur lors de la suppression du véhicule: " + error, "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                    else
+                    {
+                        XtraMessageBox.Show("Véhicule supprimé avec succès.", "Succès", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        LoadVehicles();
+                    }
+                }
+            }
+        }
+
+
+
     }
-
-
-
-}
 
 
 
@@ -294,11 +343,11 @@ namespace VehicleManager
         }
         public void OnvehiclesCountingChanged(int newVehiclesCounting)
         {
-        if(newVehiclesCounting != currentCounting)
-        {
-            currentCounting = newVehiclesCounting;
-            OnVehiclesCountingChanged(new vehiclesCountingChangedEventArgs(currentCounting, label.Name));
-        }
+            if (newVehiclesCounting != currentCounting)
+            {
+                currentCounting = newVehiclesCounting;
+                OnVehiclesCountingChanged(new vehiclesCountingChangedEventArgs(currentCounting, label.Name));
+            }
 
         }
 
@@ -307,5 +356,6 @@ namespace VehicleManager
             vehiclesCountingChanged?.Invoke(this, e);
         }
     }
+}
 
 

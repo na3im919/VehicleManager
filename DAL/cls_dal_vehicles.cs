@@ -10,7 +10,7 @@ namespace DAL
 {
     public class cls_dal_vehicles
     {
-        static string connectionString  = cls_dal_connections.connection;
+        static string connectionString = cls_dal_connections.connection;
 
         public static List<cls_ml_vehicles> GetAllVehicles(
     out string error_message,
@@ -88,7 +88,7 @@ namespace DAL
                                     end_date = reader.IsDBNull(reader.GetOrdinal("end_date")) ? (DateTime?)null : reader.GetDateTime(reader.GetOrdinal("end_date"))
                                 };
 
-                                    vehicles.Add(vehicle);
+                                vehicles.Add(vehicle);
                             }
                         }
                     }
@@ -177,5 +177,183 @@ namespace DAL
             }
         }
 
+        public static cls_ml_vehicles GetVehicleByID(int vehicleID, out string error)
+        {
+            error = string.Empty;
+            cls_ml_vehicles vehicle = null;
+            string query = @"SELECT * FROM Vehicles WHERE vehicle_id = @vehicleID";
+
+            using (var connection = new SqlConnection(connectionString))
+            {
+                try
+                {
+                    connection.Open();
+                    using (var command = new SqlCommand(query, connection))
+                    {
+                        command.Parameters.AddWithValue("@vehicleID", vehicleID);
+                        using (var reader = command.ExecuteReader())
+                        {
+                            if (reader.Read())
+                            {
+                                vehicle = new cls_ml_vehicles
+                                {
+                                    vehicle_id = reader.GetInt32(reader.GetOrdinal("vehicle_id")),
+                                    vehicle_brand = reader.IsDBNull(reader.GetOrdinal("vehicle_brand")) ? null : reader.GetString(reader.GetOrdinal("vehicle_brand")),
+                                    registration_number = reader.IsDBNull(reader.GetOrdinal("vehicle_number")) ? null : reader.GetString(reader.GetOrdinal("vehicle_number")),
+                                    provider_id = reader.GetInt32(reader.GetOrdinal("provider_id")),
+                                    department_id = reader.IsDBNull(reader.GetOrdinal("department_id")) ? (int?)null : reader.GetInt32(reader.GetOrdinal("department_id")),
+                                    driver_id = reader.IsDBNull(reader.GetOrdinal("driver_id")) ? (int?)null : reader.GetInt32(reader.GetOrdinal("driver_id")),
+                                    start_date = reader.GetDateTime(reader.GetOrdinal("start_date")),
+                                    end_date = reader.IsDBNull(reader.GetOrdinal("end_date")) ? (DateTime?)null : reader.GetDateTime(reader.GetOrdinal("end_date")),
+                                    observation = reader.IsDBNull(reader.GetOrdinal("observation")) ? null : reader.GetString(reader.GetOrdinal("observation")),
+                                    status_id = reader.GetInt32(reader.GetOrdinal("status_id"))
+                                };
+                                return vehicle;
+                            }
+                            return null; // No vehicle found with the given ID
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    error = ex.Message;
+                    return null;
+                }
+            }
+        }
+
+        public int GetVehicleIDByNumber(string vehicleNumber, out string error)
+        {
+            error = string.Empty;
+            int vehicleID = -1;
+            string query = "SELECT vehicle_id FROM Vehicles WHERE vehicle_number = @vehicleNumber";
+            using (var connection = new SqlConnection(connectionString))
+            {
+                try
+                {
+                    connection.Open();
+                    using (var command = new SqlCommand(query, connection))
+                    {
+                        command.Parameters.AddWithValue("@vehicleNumber", vehicleNumber);
+                        object result = command.ExecuteScalar();
+                        if (result != null && result != DBNull.Value)
+                        {
+                            vehicleID = Convert.ToInt32(result);
+                        }
+                    }
+                    return vehicleID;
+                }
+                catch (Exception ex)
+                {
+                    error = ex.Message;
+                    return -1; // Indicate error
+                }
+            }
+        }
+
+        public static bool AddNewVehicle(cls_ml_vehicles newVehicle, out string error)
+        {
+            error = string.Empty;
+            string query = @"INSERT INTO Vehicles 
+                             (vehicle_brand, vehicle_number, provider_id, department_id, driver_id, start_date, end_date, observation, status_id) 
+                             VALUES 
+                             (@vehicle_brand, @vehicle_number, @provider_id, @department_id, @driver_id, @start_date, @end_date, @observation, @status_id)";
+            using (var connection = new SqlConnection(connectionString))
+            {
+                try
+                {
+                    connection.Open();
+                    using (var command = new SqlCommand(query, connection))
+                    {
+                        command.Parameters.AddWithValue("@vehicle_brand", newVehicle.vehicle_brand ?? (object)DBNull.Value);
+                        command.Parameters.AddWithValue("@vehicle_number", newVehicle.registration_number ?? (object)DBNull.Value);
+                        command.Parameters.AddWithValue("@provider_id", newVehicle.provider_id);
+                        command.Parameters.AddWithValue("@department_id", newVehicle.department_id ?? (object)DBNull.Value);
+                        command.Parameters.AddWithValue("@driver_id", newVehicle.driver_id ?? (object)DBNull.Value);
+                        command.Parameters.AddWithValue("@start_date", newVehicle.start_date);
+                        command.Parameters.AddWithValue("@end_date", newVehicle.end_date ?? (object)DBNull.Value);
+                        command.Parameters.AddWithValue("@observation", newVehicle.observation ?? (object)DBNull.Value);
+                        command.Parameters.AddWithValue("@status_id", newVehicle.status_id);
+                        int rowsAffected = command.ExecuteNonQuery();
+                        return rowsAffected > 0; // Return true if insert was successful
+                    }
+                }
+                catch (Exception ex)
+                {
+                    error = ex.Message;
+                    return false;
+                }
+            }
+        }
+
+        public static bool UpdateVehicle(int vehicleID, cls_ml_vehicles vehicleToUpdate, out string error)
+        {
+            error = string.Empty;
+            string query = @"UPDATE Vehicles SET 
+                             vehicle_brand = @vehicle_brand, 
+                             vehicle_number = @vehicle_number, 
+                             provider_id = @provider_id, 
+                             department_id = @department_id, 
+                             driver_id = @driver_id, 
+                             start_date = @start_date, 
+                             end_date = @end_date, 
+                             observation = @observation, 
+                             status_id = @status_id 
+                             WHERE vehicle_id = @vehicle_id";
+            using (var connection = new SqlConnection(connectionString))
+            {
+                try
+                {
+                    connection.Open();
+                    using (var command = new SqlCommand(query, connection))
+                    {
+                        command.Parameters.AddWithValue("@vehicle_brand", vehicleToUpdate.vehicle_brand ?? (object)DBNull.Value);
+                        command.Parameters.AddWithValue("@vehicle_number", vehicleToUpdate.registration_number ?? (object)DBNull.Value);
+                        command.Parameters.AddWithValue("@provider_id", vehicleToUpdate.provider_id);
+                        command.Parameters.AddWithValue("@department_id", vehicleToUpdate.department_id ?? (object)DBNull.Value);
+                        command.Parameters.AddWithValue("@driver_id", vehicleToUpdate.driver_id ?? (object)DBNull.Value);
+                        command.Parameters.AddWithValue("@start_date", vehicleToUpdate.start_date);
+                        command.Parameters.AddWithValue("@end_date", vehicleToUpdate.end_date ?? (object)DBNull.Value);
+                        command.Parameters.AddWithValue("@observation", vehicleToUpdate.observation ?? (object)DBNull.Value);
+                        command.Parameters.AddWithValue("@status_id", vehicleToUpdate.status_id);
+                        command.Parameters.AddWithValue("@vehicle_id", vehicleID);
+                        int rowsAffected = command.ExecuteNonQuery();
+                        return rowsAffected > 0; // Return true if update was successful
+                    }
+                }
+                catch (Exception ex)
+                {
+                    error = ex.Message;
+                    return false;
+                }
+            }
+
+
+
+        }
+
+        public static bool DeleteVehicle(int vehicleID, out string error)
+        {
+            error = string.Empty;
+            string query = "DELETE FROM Vehicles WHERE vehicle_id = @vehicle_id";
+            using (var connection = new SqlConnection(connectionString))
+            {
+                try
+                {
+                    connection.Open();
+                    using (var command = new SqlCommand(query, connection))
+                    {
+                        command.Parameters.AddWithValue("@vehicle_id", vehicleID);
+                        int rowsAffected = command.ExecuteNonQuery();
+                        return rowsAffected > 0; // Return true if delete was successful
+                    }
+                }
+                catch (Exception ex)
+                {
+                    error = ex.Message;
+                    return false;
+                }
+            }
+        }
     }
 }

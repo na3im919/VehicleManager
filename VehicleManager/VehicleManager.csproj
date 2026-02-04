@@ -123,6 +123,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -146,6 +147,15 @@
       <Project>{a6016a66-44b0-4913-8589-f07fd1c916e2}</Project>
       <Name>Models</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\actions_add.svg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\actions_edit.svg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\actions_add1.svg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

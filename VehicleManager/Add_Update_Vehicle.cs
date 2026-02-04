@@ -9,16 +9,93 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using DevExpress.XtraEditors;
 using BL;
+using Models;
 
 namespace VehicleManager
 {
     public partial class Add_Update_Vehicle : XtraForm
     {
+        enum enMode
+        {
+            Add = 1,
+            Update = 2
+        }
+        public delegate void VehicleListRefreshHandler(string column, string text);
+        public event VehicleListRefreshHandler OnVehicleListRefresh;
+        enMode Mode;
+        int _vehicleID;
+        cls_ml_vehicles _currentVehicle;
         public Add_Update_Vehicle()
         {
             InitializeComponent();
+            Mode = enMode.Add;
         }
 
+        public Add_Update_Vehicle(int vehicleID)
+        {
+            InitializeComponent();
+            _vehicleID = vehicleID;
+            Mode = enMode.Update;
+            LoadVehicleData();
+            btn_add_update.Text = "Mettre à jour";
+            btn_add_update.ImageOptions.SvgImage = Properties.Resources.actions_edit;
+        }
+
+        void LoadVehicleData()
+        {
+            string error;
+            _currentVehicle = cls_bl_vehicles.GetVehicleByID(_vehicleID, out error);
+            if(_currentVehicle == null)
+            {
+                XtraMessageBox.Show("Erreur lors du chargement des données du véhicule : " + error, "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                this.Close();
+                return;
+            }
+            txt_vehicle_name.Text = _currentVehicle.vehicle_brand;
+            txt_vehicle_number.Text = _currentVehicle.registration_number;
+            cmb_provider.EditValue = _currentVehicle.provider_id;
+            cmb_status.EditValue = _currentVehicle.status_id;
+            cmb_department.EditValue = _currentVehicle.department_id;
+            cmb_driver.EditValue = _currentVehicle.driver_id;
+            date_start_service.DateTime = _currentVehicle.start_date;
+            if(_currentVehicle.end_date.HasValue)
+            {
+                date_end_service.DateTime = _currentVehicle.end_date.Value;
+            }
+        }
+
+        void AddUpdateVehicle()
+        {
+            var vehicle = new cls_ml_vehicles()
+            {
+                vehicle_brand = txt_vehicle_name.Text,
+                registration_number = txt_vehicle_number.Text,
+                provider_id = Convert.ToInt32(cmb_provider.EditValue),
+                status_id = Convert.ToInt32(cmb_status.EditValue),
+                department_id = cmb_department.EditValue != null ? Convert.ToInt32(cmb_department.EditValue) : (int?)null,
+                driver_id = cmb_driver.EditValue != null ? Convert.ToInt32(cmb_driver.EditValue) : (int?)null,
+                start_date = date_start_service.DateTime,
+                end_date = !string.IsNullOrEmpty(date_end_service.Text) ? (DateTime?)date_end_service.DateTime : null
+
+            };
+            string error;
+            bool result = false;
+            result = Mode == enMode.Add ? cls_bl_vehicles.AddNewVehicle(vehicle, out error) : cls_bl_vehicles.UpdateVehicle(_vehicleID, vehicle, out error);
+            string operation = string.Empty;
+            if (result)
+            {
+                operation = Mode == enMode.Add ? "enregistré" : "mis à jour";
+                XtraMessageBox.Show($"Véhicule {operation} avec succès.", "Succès", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            else
+            {
+                operation = Mode == enMode.Add ? "l'enregistrement" : "mis à jour";
+                XtraMessageBox.Show($"Erreur lors de {operation} du véhicule : " + error, "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+            }
+
+            this.Close();
+        }
 
         bool DataValidation()
         {
@@ -159,6 +236,8 @@ namespace VehicleManager
             {
                 return;
             }
+            AddUpdateVehicle();
+            OnVehicleListRefresh?.Invoke("", "");
         }
 
         private void Add_Update_Vehicle_Load(object sender, EventArgs e)
