@@ -8,7 +8,7 @@ namespace DAL
 {
     public class cls_dal_drivers
     {
-        static string connectionString  = cls_dal_connections.connection;
+        static string connectionString  = DbConfig.ConnectionString;
 
         public static List<Models.cls_ml_drivers> GetAllDrivers(out string error)
         { 

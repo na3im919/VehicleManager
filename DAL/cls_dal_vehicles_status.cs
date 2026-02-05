@@ -8,7 +8,7 @@ namespace DAL
 {
     public class cls_dal_vehicles_status
     {
-        static string connectionString  = cls_dal_connections.connection;
+        static string connectionString  = DbConfig.ConnectionString;
 
         public static List<Models.cls_ml_vehicles_status> GetAllVehiclesStatus(out string error)
         { 

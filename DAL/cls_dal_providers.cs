@@ -10,7 +10,7 @@ namespace DAL
 {
     public class cls_dal_providers
     {
-        static string connectionString  = cls_dal_connections.connection;
+        static string connectionString  = DbConfig.ConnectionString;
 
         public static List<cls_ml_providers> GetAllProviders(out string error)
         { 

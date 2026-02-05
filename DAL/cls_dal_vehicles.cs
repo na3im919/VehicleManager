@@ -10,7 +10,7 @@ namespace DAL
 {
     public class cls_dal_vehicles
     {
-        static string connectionString = cls_dal_connections.connection;
+        static string connectionString = DbConfig.ConnectionString;
 
         public static List<cls_ml_vehicles> GetAllVehicles(
     out string error_message,
