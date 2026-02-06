@@ -86,6 +86,12 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AddUpdateDriver.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddUpdateDriver.Designer.cs">
+      <DependentUpon>AddUpdateDriver.cs</DependentUpon>
+    </Compile>
     <Compile Include="Add_Update_Vehicle.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -118,6 +124,9 @@
     <Compile Include="VehicleImages.Designer.cs">
       <DependentUpon>VehicleImages.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="AddUpdateDriver.resx">
+      <DependentUpon>AddUpdateDriver.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Add_Update_Vehicle.resx">
       <DependentUpon>Add_Update_Vehicle.cs</DependentUpon>
     </EmbeddedResource>
@@ -189,6 +198,18 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\search.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\actions_add2.svg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\close.svg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\resetlayoutoptions.svg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\actions_deletecircled1.svg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

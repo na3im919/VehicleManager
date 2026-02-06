@@ -166,7 +166,7 @@ namespace VehicleManager
         public void LoadDrivers(string kw)
         {
             string error;
-            var drivers = cls_bl_drivers.GetAllDrivers(kw, out error);
+            var drivers = cls_bl_drivers.GetAllDrivers(kw, out error, true);
             if(drivers == null)
             {
                 XtraMessageBox.Show("Erreur lors du chargement des conducteurs : " + error, "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);

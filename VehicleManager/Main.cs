@@ -80,7 +80,7 @@ namespace VehicleManager
 
         private void Main_Load(object sender, EventArgs e)
         {
-            //OpenFormsFrom("Dashboard");
+            OpenFormsFrom("Dashboard");
         }
     }
 }
