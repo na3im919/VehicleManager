@@ -37,9 +37,19 @@ namespace VehicleManager
             // تحقق مما إذا كان الفورم مفتوحًا بالفعل
             if (OpenedForms.ContainsKey(Name))
             {
-                // إذا كان مفتوحًا، فقط قم بعرضه
                 Form existingForm = OpenedForms[Name];
-                existingForm.BringToFront(); // إحضاره إلى المقدمة
+
+                fluentDesignFormContainer1.Controls.Clear();
+
+                existingForm.TopLevel = false;
+                existingForm.FormBorderStyle = FormBorderStyle.None;
+                existingForm.Dock = DockStyle.Fill;
+
+                fluentDesignFormContainer1.Controls.Add(existingForm);
+                fluentDesignFormContainer1.Tag = existingForm;
+
+                existingForm.Show();
+                existingForm.BringToFront();
             }
             else
             {
@@ -70,7 +80,7 @@ namespace VehicleManager
 
         private void Main_Load(object sender, EventArgs e)
         {
-            OpenFormsFrom("Dashboard");
+            //OpenFormsFrom("Dashboard");
         }
     }
 }

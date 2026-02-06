@@ -8,9 +8,9 @@ namespace BL
 {
     public class cls_bl_drivers
     {
-        public static List<Models.cls_ml_drivers> GetAllDrivers(out string error)
+        public static List<Models.cls_ml_drivers> GetAllDrivers(string kw, out string error)
         {
-            return DAL.cls_dal_drivers.GetAllDrivers(out error);
+            return DAL.cls_dal_drivers.GetAllDrivers(kw, out error);
         }
 
         public static int GetDriverIdByName(string driver_name, out string error)
