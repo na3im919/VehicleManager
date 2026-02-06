@@ -104,6 +104,7 @@
     <Compile Include="cls_dal_vehicles.cs" />
     <Compile Include="cls_dal_drivers.cs" />
     <Compile Include="cls_dal_vehicles_status.cs" />
+    <Compile Include="cls_dal_vehicle_images.cs" />
     <Compile Include="DbConfig.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

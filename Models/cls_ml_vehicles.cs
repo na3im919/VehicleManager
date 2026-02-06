@@ -22,7 +22,7 @@ namespace Models
         public string observation { get; set; }
 
         public string status_label { get; set; }
-        public int status_id { get; set; }
+        public int status_id { get; set; } = 1;
 
     }
 }

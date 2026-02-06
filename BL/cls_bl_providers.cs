@@ -13,5 +13,16 @@ namespace BL
         {
             return cls_dal_providers.GetAllProviders(out error);
         }
+
+        public static int GetProviderIDByName(string providerName, out string error)
+        {
+            return cls_dal_providers.GetProviderIDByName(providerName, out error);
+        }
+
+        public static int AddNewProvider(string providerName, out string error)
+        {
+            return cls_dal_providers.AddNewProvider(providerName, out error);
+        }
+
     }
 }

@@ -83,7 +83,7 @@ namespace VehicleManager
                 // ربط القائمة بالجدول
                 dgv_vehicles.DataSource = vehiclesList;
 
-
+                dgv_vehicles.AllowUserToOrderColumns = true;
                 // 4. تعريف الأعمدة (Columns Mapping)
                 // إذا لم تكن الأعمدة موجودة مسبقاً، نقوم بإنشائها
                 if (dgv_vehicles.Columns.Count == 0)
@@ -95,7 +95,9 @@ namespace VehicleManager
                         DataPropertyName = "vehicle_id",
                         HeaderText = "N°",
                         Width = 50,
-                        AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells
+                        AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells,
+                        SortMode = DataGridViewColumnSortMode.Automatic
+
                     });
 
                     // Véhicule
@@ -183,6 +185,17 @@ namespace VehicleManager
                         HeaderText = "OBSERVATION",
                         Width = 300,
                         AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill
+                    });
+
+                    dgv_vehicles.Columns.Add(new DataGridViewImageColumn 
+                    { 
+                        Name = "status_image", 
+                        DataPropertyName = "status_image", 
+                        HeaderText = "", 
+                        Width = 50, 
+                        AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells, 
+                        ImageLayout = DataGridViewImageCellLayout.Zoom ,
+                        Image = Properties.Resources.specification // تأكد من إضافة صورة status_icon إلى موارد المشروع (Resources)
                     });
 
 
@@ -286,6 +299,8 @@ namespace VehicleManager
             Add_Update_Vehicle addVehicleForm = new Add_Update_Vehicle();
             addVehicleForm.OnVehicleListRefresh += LoadVehicles;
             addVehicleForm.ShowDialog();
+            txtSearch.Clear();
+            txtSearch.Focus();
         }
 
         private void btn_update_Click(object sender, EventArgs e)
@@ -296,6 +311,8 @@ namespace VehicleManager
                 Add_Update_Vehicle updateVehicleForm = new Add_Update_Vehicle(vehicle_id);
                 updateVehicleForm.OnVehicleListRefresh += LoadVehicles;
                 updateVehicleForm.ShowDialog();
+                txtSearch.Clear();
+                txtSearch.Focus();
             }
             return;
         }
@@ -318,13 +335,78 @@ namespace VehicleManager
                     {
                         XtraMessageBox.Show("Véhicule supprimé avec succès.", "Succès", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         LoadVehicles();
+                        txtSearch.Clear();
+                        txtSearch.Focus();
                     }
                 }
             }
         }
 
+        private void btn_import_xl_Click(object sender, EventArgs e)
+        {
+            using (OpenFileDialog ofd = new OpenFileDialog())
+            {
+                ofd.Title = "Sélectionner un fichier Excel";
+                ofd.Filter = "Excel Files (*.xlsx;*.xls)|*.xlsx;*.xls";
+                ofd.Multiselect = false;
 
+                if (ofd.ShowDialog() == DialogResult.OK)
+                {
+                    string error;
+                    int rowsNumber;
+                    if(!cls_bl_vehicles.ImportVehiclesFromExcel(ofd.FileName, out error, out rowsNumber))
+                    {
+                        MessageBox.Show("Erreur lors de l'importation: " + error, "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return;
+                    }
 
+                    MessageBox.Show($"Importation terminée avec succès ✅ {rowsNumber} nouvelle véhicule a ajouter");
+                    LoadVehicles();
+                }
+            }
+        }
+
+        private void exporterVideFicherToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            using (SaveFileDialog sfd = new SaveFileDialog())
+            {
+                sfd.Title = "Exporter un modèle Excel";
+                sfd.Filter = "Excel Files (*.xlsx)|*.xlsx";
+                sfd.FileName = "Vehicles_Template.xlsx";
+
+                if (sfd.ShowDialog() == DialogResult.OK)
+                {
+                    string error;
+                    cls_bl_vehicles.ExportEmptyVehiclesExcel(sfd.FileName, out error);
+
+                    if (string.IsNullOrEmpty(error))
+                    {
+                        MessageBox.Show("Fichier Excel créé avec succès ✅");
+                    }
+                    else
+                    {
+                        MessageBox.Show(error, "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+            }
+        }
+
+        private void dgv_vehicles_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex < 0)
+                return;
+
+            // اسم عمود الصور
+            if (dgv_vehicles.Columns[e.ColumnIndex].Name == "status_image")
+            {
+                int vehicleId = Convert.ToInt32(
+                    dgv_vehicles.Rows[e.RowIndex].Cells["vehicle_id"].Value
+                );
+
+                VehicleImages frm = new VehicleImages(vehicleId);
+                frm.ShowDialog();
+            }
+        }
     }
 
 

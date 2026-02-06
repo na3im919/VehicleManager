@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Dashboard));
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel7 = new System.Windows.Forms.Panel();
@@ -55,11 +56,13 @@
             this.txtSearch = new System.Windows.Forms.TextBox();
             this.cmbSearchField = new System.Windows.Forms.ComboBox();
             this.panel13 = new System.Windows.Forms.Panel();
-            this.simpleButton4 = new DevExpress.XtraEditors.SimpleButton();
+            this.btn_import_xl = new DevExpress.XtraEditors.SimpleButton();
             this.btn_delete = new DevExpress.XtraEditors.SimpleButton();
             this.btn_update = new DevExpress.XtraEditors.SimpleButton();
             this.btn_add = new DevExpress.XtraEditors.SimpleButton();
             this.dgv_vehicles = new System.Windows.Forms.DataGridView();
+            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.exporterVideFicherToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panel1.SuspendLayout();
             this.panel7.SuspendLayout();
             this.panel11.SuspendLayout();
@@ -76,6 +79,7 @@
             this.panel2.SuspendLayout();
             this.panel13.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_vehicles)).BeginInit();
+            this.contextMenuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
@@ -376,7 +380,7 @@
             // panel13
             // 
             this.panel13.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel13.Controls.Add(this.simpleButton4);
+            this.panel13.Controls.Add(this.btn_import_xl);
             this.panel13.Controls.Add(this.btn_delete);
             this.panel13.Controls.Add(this.btn_update);
             this.panel13.Controls.Add(this.btn_add);
@@ -387,23 +391,24 @@
             this.panel13.Size = new System.Drawing.Size(1944, 99);
             this.panel13.TabIndex = 2;
             // 
-            // simpleButton4
+            // btn_import_xl
             // 
-            this.simpleButton4.Appearance.Font = new System.Drawing.Font("Trebuchet MS", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.simpleButton4.Appearance.Options.UseFont = true;
-            this.simpleButton4.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("simpleButton4.ImageOptions.SvgImage")));
-            this.simpleButton4.Location = new System.Drawing.Point(683, 19);
-            this.simpleButton4.Margin = new System.Windows.Forms.Padding(4);
-            this.simpleButton4.Name = "simpleButton4";
-            this.simpleButton4.Size = new System.Drawing.Size(189, 61);
-            this.simpleButton4.TabIndex = 3;
-            this.simpleButton4.Text = "Importer";
+            this.btn_import_xl.Appearance.Font = new System.Drawing.Font("Trebuchet MS", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_import_xl.Appearance.Options.UseFont = true;
+            this.btn_import_xl.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btn_import_xl.ImageOptions.SvgImage")));
+            this.btn_import_xl.Location = new System.Drawing.Point(683, 19);
+            this.btn_import_xl.Margin = new System.Windows.Forms.Padding(4);
+            this.btn_import_xl.Name = "btn_import_xl";
+            this.btn_import_xl.Size = new System.Drawing.Size(189, 61);
+            this.btn_import_xl.TabIndex = 3;
+            this.btn_import_xl.Text = "Importer";
+            this.btn_import_xl.Click += new System.EventHandler(this.btn_import_xl_Click);
             // 
             // btn_delete
             // 
             this.btn_delete.Appearance.Font = new System.Drawing.Font("Trebuchet MS", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_delete.Appearance.Options.UseFont = true;
-            this.btn_delete.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("simpleButton3.ImageOptions.SvgImage")));
+            this.btn_delete.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btn_delete.ImageOptions.SvgImage")));
             this.btn_delete.Location = new System.Drawing.Point(469, 19);
             this.btn_delete.Margin = new System.Windows.Forms.Padding(4);
             this.btn_delete.Name = "btn_delete";
@@ -445,6 +450,7 @@
             this.dgv_vehicles.AllowUserToOrderColumns = true;
             this.dgv_vehicles.BackgroundColor = System.Drawing.Color.White;
             this.dgv_vehicles.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgv_vehicles.ContextMenuStrip = this.contextMenuStrip1;
             this.dgv_vehicles.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgv_vehicles.Location = new System.Drawing.Point(0, 404);
             this.dgv_vehicles.Margin = new System.Windows.Forms.Padding(4);
@@ -457,6 +463,22 @@
             this.dgv_vehicles.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgv_vehicles.Size = new System.Drawing.Size(1944, 477);
             this.dgv_vehicles.TabIndex = 3;
+            this.dgv_vehicles.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_vehicles_CellContentClick);
+            // 
+            // contextMenuStrip1
+            // 
+            this.contextMenuStrip1.ImageScalingSize = new System.Drawing.Size(24, 24);
+            this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.exporterVideFicherToolStripMenuItem});
+            this.contextMenuStrip1.Name = "contextMenuStrip1";
+            this.contextMenuStrip1.Size = new System.Drawing.Size(289, 36);
+            // 
+            // exporterVideFicherToolStripMenuItem
+            // 
+            this.exporterVideFicherToolStripMenuItem.Name = "exporterVideFicherToolStripMenuItem";
+            this.exporterVideFicherToolStripMenuItem.Size = new System.Drawing.Size(288, 32);
+            this.exporterVideFicherToolStripMenuItem.Text = "Exporter Fichier Excel Vide";
+            this.exporterVideFicherToolStripMenuItem.Click += new System.EventHandler(this.exporterVideFicherToolStripMenuItem_Click);
             // 
             // Dashboard
             // 
@@ -492,6 +514,7 @@
             this.panel2.PerformLayout();
             this.panel13.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgv_vehicles)).EndInit();
+            this.contextMenuStrip1.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -526,8 +549,10 @@
         private DevExpress.XtraEditors.SimpleButton btn_delete;
         private DevExpress.XtraEditors.SimpleButton btn_update;
         private DevExpress.XtraEditors.SimpleButton btn_add;
-        private DevExpress.XtraEditors.SimpleButton simpleButton4;
+        private DevExpress.XtraEditors.SimpleButton btn_import_xl;
         private System.Windows.Forms.DataGridView dgv_vehicles;
         public System.Windows.Forms.Label lbl_all_vehicles;
+        private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem exporterVideFicherToolStripMenuItem;
     }
 }

@@ -222,7 +222,7 @@ namespace DAL
             }
         }
 
-        public int GetVehicleIDByNumber(string vehicleNumber, out string error)
+        public static int GetVehicleIDByNumber(string vehicleNumber, out string error)
         {
             error = string.Empty;
             int vehicleID = -1;
