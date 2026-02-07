@@ -100,7 +100,7 @@
             // 
             this.panel7.Controls.Add(this.panel11);
             this.panel7.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panel7.Location = new System.Drawing.Point(1307, 0);
+            this.panel7.Location = new System.Drawing.Point(1246, 0);
             this.panel7.Margin = new System.Windows.Forms.Padding(4);
             this.panel7.Name = "panel7";
             this.panel7.Size = new System.Drawing.Size(409, 238);
@@ -157,7 +157,7 @@
             // 
             this.panel6.Controls.Add(this.panel10);
             this.panel6.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panel6.Location = new System.Drawing.Point(898, 0);
+            this.panel6.Location = new System.Drawing.Point(837, 0);
             this.panel6.Margin = new System.Windows.Forms.Padding(4);
             this.panel6.Name = "panel6";
             this.panel6.Size = new System.Drawing.Size(409, 238);
@@ -214,7 +214,7 @@
             // 
             this.panel5.Controls.Add(this.panel9);
             this.panel5.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panel5.Location = new System.Drawing.Point(489, 0);
+            this.panel5.Location = new System.Drawing.Point(428, 0);
             this.panel5.Margin = new System.Windows.Forms.Padding(4);
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(409, 238);
@@ -271,7 +271,7 @@
             // 
             this.panel4.Controls.Add(this.panel8);
             this.panel4.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panel4.Location = new System.Drawing.Point(80, 0);
+            this.panel4.Location = new System.Drawing.Point(19, 0);
             this.panel4.Margin = new System.Windows.Forms.Padding(4);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(409, 238);
@@ -330,7 +330,7 @@
             this.panel3.Location = new System.Drawing.Point(0, 0);
             this.panel3.Margin = new System.Windows.Forms.Padding(4);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(80, 238);
+            this.panel3.Size = new System.Drawing.Size(19, 238);
             this.panel3.TabIndex = 6;
             // 
             // panel2

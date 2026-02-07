@@ -86,6 +86,12 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AddUpdateDepartment.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddUpdateDepartment.Designer.cs">
+      <DependentUpon>AddUpdateDepartment.cs</DependentUpon>
+    </Compile>
     <Compile Include="AddUpdateDriver.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -109,6 +115,12 @@
     </Compile>
     <Compile Include="Dashboard.Designer.cs">
       <DependentUpon>Dashboard.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DepatmentManger.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DepatmentManger.Designer.cs">
+      <DependentUpon>DepatmentManger.cs</DependentUpon>
     </Compile>
     <Compile Include="DriverManager.cs">
       <SubType>Form</SubType>
@@ -136,6 +148,9 @@
     <Compile Include="VehicleImages.Designer.cs">
       <DependentUpon>VehicleImages.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="AddUpdateDepartment.resx">
+      <DependentUpon>AddUpdateDepartment.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="AddUpdateDriver.resx">
       <DependentUpon>AddUpdateDriver.cs</DependentUpon>
     </EmbeddedResource>
@@ -147,6 +162,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Dashboard.resx">
       <DependentUpon>Dashboard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DepatmentManger.resx">
+      <DependentUpon>DepatmentManger.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="DriverManager.resx">
       <DependentUpon>DriverManager.cs</DependentUpon>

@@ -47,11 +47,11 @@ namespace VehicleManager
                 XtraMessageBox.Show(error, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
-            if (providerData != null && providerData.Count > 0)
+            if (providerData.Count > 0 && providerData != null)
             {
-                dgv_providers.DataSource = providerData;
                 if (dgv_providers.Columns.Count == 0)
                 {
+                    dgv_providers.DataSource = providerData;
                     dgv_providers.Columns.Add(new DataGridViewTextBoxColumn
                     {
                         Name = "ID",
@@ -83,9 +83,14 @@ namespace VehicleManager
                 dgv_providers.Rows.Clear();
             }
 
-
+            ProvidersCounter();
         }
 
+        void ProvidersCounter()
+        {
+            int providers = dgv_providers.RowCount;
+            lbl_drivers_number.Text = providers.ToString();
+        }
         private void ProviderManager_Load(object sender, EventArgs e)
         {
            LoadProviderData();
@@ -107,6 +112,7 @@ namespace VehicleManager
                 btn_delete.ImageOptions.SvgImage = Properties.Resources.actions_deletecircled;
                 btn_add.Enabled = true;
                 btn_update.Enabled = true;
+                label2.Text = "Nombre Du Préstataires Active :";
             }
            
             LoadProviderData();
@@ -122,6 +128,7 @@ namespace VehicleManager
                 btn_add.Enabled = false;
                 btn_update.Enabled = false;
             }
+            label2.Text = "Nombre Du Préstataires Supprimé :";
             LoadProviderData();
 
         }

@@ -1,6 +1,6 @@
 ﻿namespace VehicleManager
 {
-    partial class ProviderManager
+    partial class DepatmentManger
     {
         /// <summary>
         /// Required designer variable.
@@ -28,71 +28,71 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ProviderManager));
-            this.dgv_providers = new System.Windows.Forms.DataGridView();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(DepatmentManger));
+            this.dgv_departments = new System.Windows.Forms.DataGridView();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.lbl_drivers_number = new System.Windows.Forms.Label();
+            this.lbl_departments_number = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.txtSearch = new System.Windows.Forms.TextBox();
             this.panel13 = new System.Windows.Forms.Panel();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.rad_deactivated_provider = new System.Windows.Forms.RadioButton();
-            this.rad_active_provider = new System.Windows.Forms.RadioButton();
+            this.rad_deactivated_affectation = new System.Windows.Forms.RadioButton();
+            this.rad_active_affectation = new System.Windows.Forms.RadioButton();
             this.btn_delete = new DevExpress.XtraEditors.SimpleButton();
             this.btn_update = new DevExpress.XtraEditors.SimpleButton();
             this.btn_add = new DevExpress.XtraEditors.SimpleButton();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.dgv_providers)).BeginInit();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_departments)).BeginInit();
             this.panel3.SuspendLayout();
             this.panel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel13.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
-            // dgv_providers
+            // dgv_departments
             // 
-            this.dgv_providers.AllowUserToAddRows = false;
-            this.dgv_providers.AllowUserToDeleteRows = false;
-            this.dgv_providers.AllowUserToOrderColumns = true;
-            this.dgv_providers.BackgroundColor = System.Drawing.Color.White;
-            this.dgv_providers.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgv_providers.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dgv_providers.Location = new System.Drawing.Point(0, 243);
-            this.dgv_providers.MultiSelect = false;
-            this.dgv_providers.Name = "dgv_providers";
-            this.dgv_providers.ReadOnly = true;
-            this.dgv_providers.RowHeadersVisible = false;
-            this.dgv_providers.RowHeadersWidth = 62;
-            this.dgv_providers.RowTemplate.Height = 28;
-            this.dgv_providers.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgv_providers.Size = new System.Drawing.Size(1167, 155);
-            this.dgv_providers.TabIndex = 16;
+            this.dgv_departments.AllowUserToAddRows = false;
+            this.dgv_departments.AllowUserToDeleteRows = false;
+            this.dgv_departments.AllowUserToOrderColumns = true;
+            this.dgv_departments.BackgroundColor = System.Drawing.Color.White;
+            this.dgv_departments.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgv_departments.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgv_departments.Location = new System.Drawing.Point(0, 243);
+            this.dgv_departments.MultiSelect = false;
+            this.dgv_departments.Name = "dgv_departments";
+            this.dgv_departments.ReadOnly = true;
+            this.dgv_departments.RowHeadersVisible = false;
+            this.dgv_departments.RowHeadersWidth = 62;
+            this.dgv_departments.RowTemplate.Height = 28;
+            this.dgv_departments.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgv_departments.Size = new System.Drawing.Size(1038, 155);
+            this.dgv_departments.TabIndex = 21;
             // 
             // panel3
             // 
-            this.panel3.Controls.Add(this.lbl_drivers_number);
+            this.panel3.Controls.Add(this.lbl_departments_number);
             this.panel3.Controls.Add(this.label2);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panel3.Location = new System.Drawing.Point(0, 398);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(1167, 52);
-            this.panel3.TabIndex = 17;
+            this.panel3.Size = new System.Drawing.Size(1038, 52);
+            this.panel3.TabIndex = 22;
             // 
-            // lbl_drivers_number
+            // lbl_departments_number
             // 
-            this.lbl_drivers_number.AutoSize = true;
-            this.lbl_drivers_number.Font = new System.Drawing.Font("Trebuchet MS", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_drivers_number.Location = new System.Drawing.Point(358, 15);
-            this.lbl_drivers_number.Name = "lbl_drivers_number";
-            this.lbl_drivers_number.Size = new System.Drawing.Size(36, 26);
-            this.lbl_drivers_number.TabIndex = 1;
-            this.lbl_drivers_number.Text = "00";
-            this.lbl_drivers_number.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.lbl_departments_number.AutoSize = true;
+            this.lbl_departments_number.Font = new System.Drawing.Font("Trebuchet MS", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_departments_number.Location = new System.Drawing.Point(349, 15);
+            this.lbl_departments_number.Name = "lbl_departments_number";
+            this.lbl_departments_number.Size = new System.Drawing.Size(36, 26);
+            this.lbl_departments_number.TabIndex = 1;
+            this.lbl_departments_number.Text = "00";
+            this.lbl_departments_number.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // label2
             // 
@@ -100,9 +100,9 @@
             this.label2.Font = new System.Drawing.Font("Trebuchet MS", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.Location = new System.Drawing.Point(12, 15);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(252, 26);
+            this.label2.Size = new System.Drawing.Size(224, 26);
             this.label2.TabIndex = 0;
-            this.label2.Text = "Nombre Du Préstataires :";
+            this.label2.Text = "Nombre D\'Affectations";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // panel2
@@ -114,18 +114,8 @@
             this.panel2.Location = new System.Drawing.Point(0, 176);
             this.panel2.Margin = new System.Windows.Forms.Padding(4);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1167, 67);
-            this.panel2.TabIndex = 14;
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = global::VehicleManager.Properties.Resources.search;
-            this.pictureBox1.Location = new System.Drawing.Point(643, 20);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(36, 30);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 2;
-            this.pictureBox1.TabStop = false;
+            this.panel2.Size = new System.Drawing.Size(1038, 67);
+            this.panel2.TabIndex = 19;
             // 
             // txtSearch
             // 
@@ -148,44 +138,44 @@
             this.panel13.Location = new System.Drawing.Point(0, 93);
             this.panel13.Margin = new System.Windows.Forms.Padding(4);
             this.panel13.Name = "panel13";
-            this.panel13.Size = new System.Drawing.Size(1167, 83);
-            this.panel13.TabIndex = 15;
+            this.panel13.Size = new System.Drawing.Size(1038, 83);
+            this.panel13.TabIndex = 20;
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.rad_deactivated_provider);
-            this.groupBox1.Controls.Add(this.rad_active_provider);
+            this.groupBox1.Controls.Add(this.rad_deactivated_affectation);
+            this.groupBox1.Controls.Add(this.rad_active_affectation);
             this.groupBox1.Location = new System.Drawing.Point(656, 3);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(502, 64);
             this.groupBox1.TabIndex = 3;
             this.groupBox1.TabStop = false;
             // 
-            // rad_deactivated_provider
+            // rad_deactivated_affectation
             // 
-            this.rad_deactivated_provider.AutoSize = true;
-            this.rad_deactivated_provider.Font = new System.Drawing.Font("Trebuchet MS", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rad_deactivated_provider.Location = new System.Drawing.Point(224, 12);
-            this.rad_deactivated_provider.Name = "rad_deactivated_provider";
-            this.rad_deactivated_provider.Size = new System.Drawing.Size(236, 30);
-            this.rad_deactivated_provider.TabIndex = 1;
-            this.rad_deactivated_provider.TabStop = true;
-            this.rad_deactivated_provider.Text = "Préstataires Supprimé";
-            this.rad_deactivated_provider.UseVisualStyleBackColor = true;
-            this.rad_deactivated_provider.CheckedChanged += new System.EventHandler(this.rad_deactivated_provider_CheckedChanged);
+            this.rad_deactivated_affectation.AutoSize = true;
+            this.rad_deactivated_affectation.Font = new System.Drawing.Font("Trebuchet MS", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rad_deactivated_affectation.Location = new System.Drawing.Point(224, 12);
+            this.rad_deactivated_affectation.Name = "rad_deactivated_affectation";
+            this.rad_deactivated_affectation.Size = new System.Drawing.Size(238, 30);
+            this.rad_deactivated_affectation.TabIndex = 1;
+            this.rad_deactivated_affectation.TabStop = true;
+            this.rad_deactivated_affectation.Text = "Affectations Supprimé";
+            this.rad_deactivated_affectation.UseVisualStyleBackColor = true;
+            this.rad_deactivated_affectation.CheckedChanged += new System.EventHandler(this.rad_deactivated_affectation_CheckedChanged);
             // 
-            // rad_active_provider
+            // rad_active_affectation
             // 
-            this.rad_active_provider.AutoSize = true;
-            this.rad_active_provider.Font = new System.Drawing.Font("Trebuchet MS", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rad_active_provider.Location = new System.Drawing.Point(6, 12);
-            this.rad_active_provider.Name = "rad_active_provider";
-            this.rad_active_provider.Size = new System.Drawing.Size(208, 30);
-            this.rad_active_provider.TabIndex = 0;
-            this.rad_active_provider.TabStop = true;
-            this.rad_active_provider.Text = "Préstataires Active";
-            this.rad_active_provider.UseVisualStyleBackColor = true;
-            this.rad_active_provider.CheckedChanged += new System.EventHandler(this.rad_active_provider_CheckedChanged);
+            this.rad_active_affectation.AutoSize = true;
+            this.rad_active_affectation.Font = new System.Drawing.Font("Trebuchet MS", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rad_active_affectation.Location = new System.Drawing.Point(6, 12);
+            this.rad_active_affectation.Name = "rad_active_affectation";
+            this.rad_active_affectation.Size = new System.Drawing.Size(210, 30);
+            this.rad_active_affectation.TabIndex = 0;
+            this.rad_active_affectation.TabStop = true;
+            this.rad_active_affectation.Text = "Affectations Active";
+            this.rad_active_affectation.UseVisualStyleBackColor = true;
+            this.rad_active_affectation.CheckedChanged += new System.EventHandler(this.rad_active_affectation_CheckedChanged);
             // 
             // btn_delete
             // 
@@ -232,8 +222,8 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1167, 93);
-            this.panel1.TabIndex = 13;
+            this.panel1.Size = new System.Drawing.Size(1038, 93);
+            this.panel1.TabIndex = 18;
             // 
             // label1
             // 
@@ -241,51 +231,61 @@
             this.label1.Font = new System.Drawing.Font("Trebuchet MS", 28F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(12, 9);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(645, 70);
+            this.label1.Size = new System.Drawing.Size(612, 70);
             this.label1.TabIndex = 0;
-            this.label1.Text = "Gestion Du Préstataires";
+            this.label1.Text = "Gestion D\'Affectations";
             // 
-            // ProviderManager
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::VehicleManager.Properties.Resources.search;
+            this.pictureBox1.Location = new System.Drawing.Point(643, 20);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(36, 30);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 2;
+            this.pictureBox1.TabStop = false;
+            // 
+            // DepatmentManger
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 19F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1167, 450);
-            this.Controls.Add(this.dgv_providers);
+            this.ClientSize = new System.Drawing.Size(1038, 450);
+            this.Controls.Add(this.dgv_departments);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel13);
             this.Controls.Add(this.panel1);
-            this.Name = "ProviderManager";
-            this.Text = "ProviderManager";
-            this.Load += new System.EventHandler(this.ProviderManager_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.dgv_providers)).EndInit();
+            this.Name = "DepatmentManger";
+            this.Text = "DepatmentManger";
+            this.Load += new System.EventHandler(this.DepatmentManger_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_departments)).EndInit();
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panel13.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.DataGridView dgv_providers;
+        private System.Windows.Forms.DataGridView dgv_departments;
         private System.Windows.Forms.Panel panel3;
-        private System.Windows.Forms.Label lbl_drivers_number;
+        private System.Windows.Forms.Label lbl_departments_number;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.TextBox txtSearch;
         private System.Windows.Forms.Panel panel13;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.RadioButton rad_deactivated_provider;
-        private System.Windows.Forms.RadioButton rad_active_provider;
+        private System.Windows.Forms.RadioButton rad_deactivated_affectation;
+        private System.Windows.Forms.RadioButton rad_active_affectation;
         private DevExpress.XtraEditors.SimpleButton btn_delete;
         private DevExpress.XtraEditors.SimpleButton btn_update;
         private DevExpress.XtraEditors.SimpleButton btn_add;

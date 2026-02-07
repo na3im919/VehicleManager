@@ -208,7 +208,7 @@ namespace VehicleManager
         void LoadDepartments()
         {
             string error;
-            var departments = cls_bl_departments.GetAllDepartments(out error);
+            var departments = cls_bl_departments.GetAllDepartments("", true, out error);
             if(departments == null)
             {
                 XtraMessageBox.Show("Erreur lors du chargement des départements : " + error, "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);

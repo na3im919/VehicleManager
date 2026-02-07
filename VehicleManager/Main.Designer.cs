@@ -46,10 +46,10 @@
             // fluentDesignFormContainer1
             // 
             this.fluentDesignFormContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.fluentDesignFormContainer1.Location = new System.Drawing.Point(210, 46);
-            this.fluentDesignFormContainer1.Margin = new System.Windows.Forms.Padding(4);
+            this.fluentDesignFormContainer1.Location = new System.Drawing.Point(277, 46);
+            this.fluentDesignFormContainer1.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.fluentDesignFormContainer1.Name = "fluentDesignFormContainer1";
-            this.fluentDesignFormContainer1.Size = new System.Drawing.Size(1734, 1059);
+            this.fluentDesignFormContainer1.Size = new System.Drawing.Size(1667, 1059);
             this.fluentDesignFormContainer1.TabIndex = 0;
             // 
             // accordionControl1
@@ -61,10 +61,10 @@
             this.accordionControlElement3,
             this.accordionControlElement4});
             this.accordionControl1.Location = new System.Drawing.Point(0, 46);
-            this.accordionControl1.Margin = new System.Windows.Forms.Padding(4);
+            this.accordionControl1.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.accordionControl1.Name = "accordionControl1";
             this.accordionControl1.ScrollBarMode = DevExpress.XtraBars.Navigation.ScrollBarMode.Touch;
-            this.accordionControl1.Size = new System.Drawing.Size(210, 1059);
+            this.accordionControl1.Size = new System.Drawing.Size(277, 1059);
             this.accordionControl1.TabIndex = 1;
             this.accordionControl1.ViewType = DevExpress.XtraBars.Navigation.AccordionControlViewType.HamburgerMenu;
             // 
@@ -97,6 +97,7 @@
             this.accordionControlElement4.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("accordionControlElement4.ImageOptions.Image")));
             this.accordionControlElement4.Name = "accordionControlElement4";
             this.accordionControlElement4.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
+            this.accordionControlElement4.Tag = "DepatmentManger";
             this.accordionControlElement4.Text = "Gestion D\'Affectation";
             // 
             // fluentDesignFormControl1
