@@ -68,7 +68,13 @@ namespace VehicleManager
                 dgv_drivers.DataSource = null;
             }
 
+            CountDriversNumber();
+        }
 
+        void CountDriversNumber()
+        {
+            int driversNumber = dgv_drivers.Rows.Count;
+            lbl_drivers_number.Text = $"{driversNumber}";
         }
         private void DriverManager_Load(object sender, EventArgs e)
         {
@@ -128,6 +134,7 @@ namespace VehicleManager
         private void rad_active_driver_CheckedChanged(object sender, EventArgs e)
         {
             isActive = rad_active_driver.Checked;
+            label2.Text = "Nombre De Conducteurs Active :";
             btn_add.Enabled = true;
             btn_update.Enabled = true;
             btn_delete.Text = "Supprimer";
@@ -143,6 +150,7 @@ namespace VehicleManager
                 btn_update.Enabled = false;
                 btn_delete.Text = "Activier";
                 btn_delete.ImageOptions.SvgImage = Properties.Resources.resetlayoutoptions;
+                label2.Text = "Nombre De Conducteurs Supprimè :";
             }
         }
     }

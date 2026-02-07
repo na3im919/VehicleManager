@@ -147,7 +147,7 @@ namespace VehicleManager
         void LoadProviders()
         {
             string error;
-            var providers = BL.cls_bl_providers.GetAllProviders(out error);
+            var providers = BL.cls_bl_providers.GetAllProviders("", out error, true);
             if(providers == null)
             {
                 XtraMessageBox.Show("Erreur lors du chargement des fournisseurs : " + error, "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
