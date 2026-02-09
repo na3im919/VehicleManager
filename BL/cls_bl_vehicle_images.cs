@@ -33,6 +33,16 @@ namespace BL
             return cls_dal_vehicle_images.UpdateVehicleImage(updatedImage);
         }
 
+        public static List<string> GetVehicleImagePaths(int vehcileID, out string error)
+        {
+            return cls_dal_vehicle_images.GetVehicleImagePaths(vehcileID, out error);
+        }
+
+        public static string GetVehicleImagePath(int vehicleID, out string error)
+        {
+            return cls_dal_vehicle_images.GetVehicleImagePath(vehicleID, out error);
+        }
+
     }
 
     public static class ImageHelper
@@ -62,6 +72,16 @@ namespace BL
             if (File.Exists(path))
                 File.Delete(path);
         }
+
+        public static void DeleteImagesFolder(string folderPath)
+        {
+            if (Directory.Exists(folderPath))
+            {
+                // هذا سيحذف المجلد وكل محتوياته (صور، مجلدات فرعية، إلخ)
+                Directory.Delete(folderPath, true);
+            }
+        }
+
     }
 
 }

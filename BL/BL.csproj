@@ -79,6 +79,7 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="cls_bl_DbInitializer.cs" />
     <Compile Include="cls_bl_departments.cs" />
     <Compile Include="cls_bl_drivers.cs" />
     <Compile Include="cls_bl_providers.cs" />

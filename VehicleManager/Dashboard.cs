@@ -8,6 +8,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -326,6 +327,8 @@ namespace VehicleManager
                 {
                     int vehicle_id = Convert.ToInt32(dgv_vehicles.SelectedRows[0].Cells["vehicle_id"].Value);
                     string error = string.Empty;
+                    string imagePath = cls_bl_vehicle_images.GetVehicleImagePath(vehicle_id, out error);
+                    string folderPath = Path.GetDirectoryName(imagePath);
                     bool isDeleted = cls_bl_vehicles.DeleteVehicle(vehicle_id, out error);
                     if (!isDeleted)
                     {
@@ -334,6 +337,10 @@ namespace VehicleManager
                     else
                     {
                         XtraMessageBox.Show("Véhicule supprimé avec succès.", "Succès", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        if (!string.IsNullOrEmpty(error))
+                            XtraMessageBox.Show(error);
+                        if(!string.IsNullOrEmpty(folderPath))
+                            ImageHelper.DeleteImagesFolder(folderPath);
                         LoadVehicles();
                         txtSearch.Clear();
                         txtSearch.Focus();

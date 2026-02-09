@@ -118,5 +118,66 @@ namespace DAL
                 return command.ExecuteNonQuery() > 0;
             }
         }
+
+        public static List<string> GetVehicleImagePaths(int vehicleID, out string error)
+        {
+            error = string.Empty;
+            var paths = new List<string>();
+
+            string query = "SELECT image_path FROM VehicleImages WHERE vehicle_id = @vehicleID";
+
+            using (var connection = new SqlConnection(connectionString))
+            {
+                using (var command = new SqlCommand(query, connection))
+                {
+                    command.Parameters.AddWithValue("@vehicleID", vehicleID);
+                    try
+                    {
+                        connection.Open();
+                        using (SqlDataReader reader = command.ExecuteReader())
+                        {
+                            while (reader.Read())
+                            {
+                                string path = reader["image_path"].ToString();
+                                paths.Add(path);
+                            }
+                            return paths;
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        error = ex.Message;
+                        return null;
+                    }
+
+                }
+            }
+        }
+
+        public static string GetVehicleImagePath(int vehicleID, out string error)
+        {
+            error = string.Empty;
+
+            string query = "SELECT TOP 1 image_path FROM VehicleImages WHERE vehicle_id = @vehicleID";
+
+            try
+            {
+                using (var connection = new SqlConnection(connectionString))
+                using (var command = new SqlCommand(query, connection))
+                {
+                    command.Parameters.AddWithValue("@vehicleID", vehicleID);
+                    connection.Open();
+
+                    var result = command.ExecuteScalar(); // يرجع أول قيمة من الاستعلام
+                    return result != null ? result.ToString() : null;
+                }
+            }
+            catch (Exception ex)
+            {
+                error = ex.Message;
+                return null;
+            }
+        }
+
     }
 }

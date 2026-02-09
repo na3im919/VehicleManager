@@ -106,6 +106,7 @@
     <Compile Include="cls_dal_vehicles_status.cs" />
     <Compile Include="cls_dal_vehicle_images.cs" />
     <Compile Include="DbConfig.cs" />
+    <Compile Include="DbInitializer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

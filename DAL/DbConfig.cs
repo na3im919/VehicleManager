@@ -1,26 +1,8 @@
-﻿using Microsoft.Extensions.Configuration;
-using System;
-using System.IO;
-
-namespace DAL
+﻿namespace DAL
 {
-  
-
     public static class DbConfig
     {
-        public static string ConnectionString { get; private set; }
-
-        // هذا الكود يعمل مرة واحدة عند تشغيل البرنامج
-        static DbConfig()
-        {
-            var builder = new ConfigurationBuilder()
-                    .SetBasePath(Directory.GetCurrentDirectory())
-                    .AddJsonFile("appsettings.json", optional: false, reloadOnChange: true);
-
-            IConfiguration config = builder.Build();
-
-            // قراءة سلسلة الاتصال من الملف
-            ConnectionString = config.GetConnectionString("DefaultConnection");
-        }
+        public static string ConnectionString { get; private set; } =
+            @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\VehcileManager.mdf;Integrated Security=True";
     }
 }
